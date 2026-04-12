@@ -15,6 +15,11 @@ public abstract class Character : MonoBehaviour
     {
         health = health - damage;
         Debug.Log(charName + " takes " + damage + " damage. Health: " + health);
+        if(health < 0f)
+        {
+            CompareTag(charName);
+            gameObject.SetActive(false);
+        }
         
     }
 
