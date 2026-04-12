@@ -15,12 +15,11 @@ public abstract class Character : MonoBehaviour
     {
         health = health - damage;
         Debug.Log(charName + " takes " + damage + " damage. Health: " + health);
-        if(health < 0f)
+        if (health < 0f)
         {
-            CompareTag(charName);
-            gameObject.SetActive(false);
+            Death();
         }
-        
+
     }
 
     public void TakeDamage(Weapons throwWeapons)
@@ -31,6 +30,8 @@ public abstract class Character : MonoBehaviour
         Debug.Log(charName + " takes " + damage + " damage. Health: " + health);*/
     }
 
+    public abstract void Death();
+    
     public abstract void Attack(Character toHit);
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
