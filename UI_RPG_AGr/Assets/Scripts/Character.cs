@@ -5,7 +5,8 @@ public abstract class Character : MonoBehaviour
     public float health;
     [SerializeField]
     private string charName;
-
+    public float maxHealth = 15f;
+    
     public string CharName
     {
         get { return charName; }
@@ -13,10 +14,12 @@ public abstract class Character : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        if (health <= 0f) return;
         health = health - damage;
         Debug.Log(charName + " takes " + damage + " damage. Health: " + health);
-        if (health < 0f)
+        if (health <= 0f)
         {
+            health = 0;
             Death();
         }
 
